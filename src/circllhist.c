@@ -850,6 +850,7 @@ hist_approx_summary_prepared(const histogram_t *hist,
         continue;
       }
       if (prepared->bounds[bound_idx] == INFINITY) break;
+      // hist_bucket_cmp() returns positive when its first bucket is lower.
       if (hist_bucket_cmp(prepared->bound_buckets[bound_idx], bucket) > 0) {
         cumulative_counts[bound_idx++] = running_count;
         continue;
